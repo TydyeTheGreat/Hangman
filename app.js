@@ -18,7 +18,7 @@ var strings = [
 
 var counter = 0;
 
-var hideStuff = [$("h4"), ("h5")];
+var hideStuff = [$("h4")];
 
 // Setup Website
 
@@ -36,6 +36,7 @@ function typeWords(header, str){
        var split = str.split("");
        header.append(split[counter]);
        counter++;
+       if(counter==str.length){counter = 0, clearInterval(SI)};
     },50);
 };
 
@@ -49,7 +50,11 @@ $(".singleplayer").on("click", function(){
 // Fade In Text
    $("h4").fadeIn("high");
    typeWords($("h4"), strings[0]);
-   
+   setTimeout(function(){
+       console.log("kk");
+       $("h4").text("");
+       typeWords($("h4"), strings[1]);
+   }, 2000);
 });
 
 

@@ -151,13 +151,13 @@ h4{
 }
 
 h5{
-   font-size:30px;
+   font-size:15px;
    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
    display: block;
    font-weight: bold;
    position: absolute; 
    letter-spacing:4px;
-   top: 120px;
+   top: 160px;
    text-align:center;
    left: 0; 
    width: 100%;
