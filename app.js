@@ -14,11 +14,14 @@ firebase.initializeApp(config);
 var strings = [
   "Welcome to Hangman",
   "The computer will generate a random word, your goal is to guess the correct letters before your body goes rip!",
+  "So let's choose a word!",
 ];
 
 var counter = 0;
 
-var hideStuff = [$("h4")];
+var hideStuff = [$("h4"), $("p3")];
+
+var wordList = ["Apple", "Pie"];
 
 // Setup Website
 
@@ -40,6 +43,15 @@ function typeWords(header, str){
     },50);
 };
 
+function typeSpaces(header, str){
+    var SI = setInterval(function(){
+       var split = str.split(" _ ");
+       header.append(split[counter]);
+       counter++;
+       if(counter==str.length){counter = 0, clearInterval(SI)};
+    },50);
+};
+
 $(".singleplayer").on("click", function(){
 // Fade Out Current Buttons
    $("h1").hide();
@@ -54,8 +66,40 @@ $(".singleplayer").on("click", function(){
        console.log("kk");
        $("h4").text("");
        typeWords($("h4"), strings[1]);
+       setTimeout(function(){
+            $("h4").text("");
+            typeWords($("h4"), strings[2]);
+            $("h4").text("");
+            setTimeout(function(){
+                createStickMan();
+                setTimeout(function(){
+                    createLetters();
+                },2000);
+            },2000);
+       },6000);
    }, 2000);
 });
 
+function createStickMan(){
+    var canvas = document.getElementById("stickman");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(20,20,150,100);
+};
 
-
+function createLetters(word){
+    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    console.log(randomWord);
+    for (var i = 0; i < randomWord.length; i++){
+      var newWord = randomWord.charAt(i); 
+      console.log(newWord);
+      $("p3").fadeIn("high");
+      typeSpaces($("p3"), newWord);
+      for (var i = 0; i < newWord.length; i++){
+        var Letters = [];
+        Letters = newWord[i];
+        console.log(Letters[i]);
+        break;
+    };
+    };
+};
