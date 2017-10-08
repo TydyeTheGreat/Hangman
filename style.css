@@ -136,3 +136,29 @@ p2{
     border-color: #ed5565;
     color: #FFFFFF;
 }
+
+h4{
+   font-size:30px;
+   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+   display: block;
+   font-weight: bold;
+   position: absolute; 
+   letter-spacing:4px;
+   top: 120px;
+   text-align:center;
+   left: 0; 
+   width: 100%;
+}
+
+h5{
+   font-size:30px;
+   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+   display: block;
+   font-weight: bold;
+   position: absolute; 
+   letter-spacing:4px;
+   top: 120px;
+   text-align:center;
+   left: 0; 
+   width: 100%;
+}

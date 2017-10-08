@@ -11,15 +11,46 @@ var config = {
   
 firebase.initializeApp(config);
 
-const myModule = require('./words');
-let val = myModule.hello();
+var strings = [
+  "Welcome to Hangman",
+  "The computer will generate a random word, your goal is to guess the correct letters before your body goes rip!",
+];
 
-// Detect if User Signed In
+var counter = 0;
+
+var hideStuff = [$("h4"), ("h5")];
+
+// Setup Website
 
 $(document).ready(function(){
     console.log("ready");
+    for (var i = 0; i < hideStuff.length; i++){
+      hideStuff[i].hide();  
+    };
 });
 
+// Start Single Player
+
+function typeWords(header, str){
+    var SI = setInterval(function(){
+       var split = str.split("");
+       header.append(split[counter]);
+       counter++;
+    },50);
+};
+
 $(".singleplayer").on("click", function(){
+// Fade Out Current Buttons
+   $("h1").hide();
+   $("h2").hide();
+   $("p").hide();
+   $("p2").hide();
+   $(this).hide();
+// Fade In Text
+   $("h4").fadeIn("high");
+   typeWords($("h4"), strings[0]);
    
 });
+
+
+
