@@ -88,18 +88,23 @@ function createStickMan(){
 };
 
 function createLetters(word){
-    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(randomWord);
-    for (var i = 0; i < randomWord.length; i++){
-      var newWord = randomWord.charAt(i); 
-      console.log(newWord);
-      $("p3").fadeIn("high");
-      typeSpaces($("p3"), newWord);
-      for (var i = 0; i < newWord.length; i++){
-        var Letters = [];
-        Letters = newWord[i];
-        console.log(Letters[i]);
-        break;
+    
+    // Get Random Word from wordList Array
+    
+    var randomWord = Math.floor(Math.random() * wordList.length);
+    var newWord = wordList[randomWord];
+    console.log(newWord);
+    
+    // Get Word Length & Create Dashes
+    
+    for (var i = 0; i < newWord.length; i++){
+      var letters = newWord.charAt(i);
+      console.log(letters);
+      var dashes = "_";
+      for (var c = 0; c < letters.length; c++){
+       var m = dashes;
+       console.log(" " + m);
+      };
     };
-    };
+    
 };
