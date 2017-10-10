@@ -104,6 +104,8 @@ function createLetters(word){
       for (var c = 0; c < letters.length; c++){
        var m = dashes;
        console.log(" " + m);
+       $("p3").fadeIn("high");
+       typeWords($("p3"), m);
       };
     };
     
