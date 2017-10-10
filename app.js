@@ -19,7 +19,7 @@ var strings = [
 
 var counter = 0;
 
-var hideStuff = [$("h4"), $("p3")];
+var hideStuff = [$("h4"), $("p3"), $("input"), $(".submitAnswer")];
 
 var wordList = ["Apple", "Pie"];
 
@@ -106,7 +106,22 @@ function createLetters(word){
        console.log(" " + m);
        $("p3").fadeIn("high");
        typeWords($("p3"), m);
+       $("input").fadeIn("high");
+       $(".submitAnswer").fadeIn("high");
       };
     };
     
 };
+
+$(".submitAnswer").on("click", function(){
+   
+   var input = $("input");
+
+   if(input.val().length != 1){
+       console.log("error");
+       alert("Your guess may only be one letter...");
+   } else {
+       console.log("fine");
+   }
+   
+});
