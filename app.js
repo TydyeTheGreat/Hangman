@@ -110,18 +110,30 @@ function createLetters(word){
        $(".submitAnswer").fadeIn("high");
       };
     };
-    
+        $(".submitAnswer").on("click", function(){
+   
+             var input = $("input");
+
+             if(input.val().length != 1){
+                 console.log("error");
+                 alert("Your guess may only be one letter...");
+             } else {
+                 console.log("fine");
+                 
+                 for (var i = 0; i < newWord.length; i++){
+                     var guess = input.val();
+                     if (guess == newWord[i]){
+                         newWord[i] = guess;
+                         console.log(guess);
+                         console.log("great");
+                     } else {
+                         console.log("not great");
+                     };
+                 };
+                 
+             };
+   
+        });
 };
 
-$(".submitAnswer").on("click", function(){
-   
-   var input = $("input");
 
-   if(input.val().length != 1){
-       console.log("error");
-       alert("Your guess may only be one letter...");
-   } else {
-       console.log("fine");
-   }
-   
-});
